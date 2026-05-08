@@ -1,0 +1,250 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="AI Data & Decision Intelligence System — automate data analysis and improve decision intelligence with bias-aware insights."
+    />
+    <title>AI Data &amp; Decision Intelligence System</title>
+    <link rel="stylesheet" href="./css/landing.css" />
+  </head>
+
+  <body>
+    <!--
+      Landing page (static):
+      - Safe to host separately or as a static asset.
+      - Links use existing app routes: /login and /dashboard (no route renames required).
+    -->
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <header class="site-header" data-header>
+      <div class="container header-row">
+        <div class="brand">
+          <span class="brand-mark" aria-hidden="true"></span>
+          <span class="brand-name">AI Data &amp; Decision Intelligence System</span>
+        </div>
+
+        <nav class="nav" aria-label="Primary">
+          <a class="nav-link" href="#features">Features</a>
+          <a class="nav-link" href="#how">How it works</a>
+          <a class="nav-link" href="#why">Why this project</a>
+        </nav>
+
+        <div class="header-actions">
+          <button class="theme-toggle" type="button" data-theme-toggle aria-label="Toggle dark mode">
+            <span class="theme-toggle-icon" data-theme-icon aria-hidden="true"></span>
+            <span class="theme-toggle-label" data-theme-label>Theme</span>
+          </button>
+          <a class="btn btn-ghost" href="/login">Log in</a>
+          <a class="btn btn-primary" href="/login" data-cta="get-started">Get Started</a>
+        </div>
+      </div>
+    </header>
+
+    <main id="main">
+      <!-- HERO -->
+      <section class="hero">
+        <div class="container hero-grid">
+          <div class="hero-copy">
+            <h1 class="hero-title">AI Data &amp; Decision Intelligence System</h1>
+            <p class="hero-tagline">Automate Data Analysis. Improve Decision Intelligence.</p>
+            <p class="hero-desc">
+              Upload a spreadsheet, generate clean analytics summaries, and evaluate decision quality with
+              bias-aware insights.
+              <br />
+              Designed for academic workflows and responsible interpretation.
+            </p>
+
+            <div class="hero-cta">
+              <a class="btn btn-primary" href="/login" data-cta="get-started-hero">Get Started</a>
+              <button class="btn btn-secondary" type="button" data-scroll="#features">Learn More</button>
+            </div>
+
+            <div class="hero-meta" aria-label="Product highlights">
+              <div class="pill">Google sign-in</div>
+              <div class="pill">CSV/Excel upload</div>
+              <div class="pill">Charts + KPIs</div>
+              <div class="pill">Bias detection</div>
+            </div>
+          </div>
+
+          <div class="hero-visual" aria-hidden="true">
+            <!-- Subtle, lightweight illustration (no external assets) -->
+            <div class="mock">
+              <div class="mock-top">
+                <div class="dot dot-red"></div>
+                <div class="dot dot-yellow"></div>
+                <div class="dot dot-green"></div>
+                <div class="mock-title">Decision Overview</div>
+              </div>
+              <div class="mock-body">
+                <div class="mock-kpis">
+                  <div class="kpi">
+                    <div class="kpi-label">Decision Score</div>
+                    <div class="kpi-value">78</div>
+                  </div>
+                  <div class="kpi">
+                    <div class="kpi-label">Findings</div>
+                    <div class="kpi-value">3</div>
+                  </div>
+                  <div class="kpi">
+                    <div class="kpi-label">Severity</div>
+                    <div class="kpi-value">Moderate</div>
+                  </div>
+                </div>
+                <svg class="mock-chart" viewBox="0 0 640 240" role="img" aria-label="Analytics preview chart">
+                  <path class="grid" d="M40 30H610M40 80H610M40 130H610M40 180H610" />
+                  <path
+                    class="line"
+                    d="M40 170 C120 140, 170 150, 240 120 S380 70, 460 90 S550 135, 610 70"
+                  />
+                  <path
+                    class="area"
+                    d="M40 170 C120 140, 170 150, 240 120 S380 70, 460 90 S550 135, 610 70 L610 210 L40 210 Z"
+                  />
+                  <circle class="pt" cx="240" cy="120" r="5" />
+                  <circle class="pt" cx="460" cy="90" r="5" />
+                  <circle class="pt" cx="610" cy="70" r="5" />
+                </svg>
+                <div class="mock-cards">
+                  <div class="mini-card">
+                    <div class="mini-title">Why detected</div>
+                    <div class="mini-text">Small sample size may overstate trends.</div>
+                  </div>
+                  <div class="mini-card">
+                    <div class="mini-title">Suggested improvement</div>
+                    <div class="mini-text">Increase sample size or report uncertainty bounds.</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- FEATURES -->
+      <section class="section" id="features">
+        <div class="container">
+          <div class="section-head">
+            <h2 class="section-title">Features</h2>
+            <p class="section-subtitle">A focused toolkit for analysis, audit, and decision clarity.</p>
+          </div>
+
+          <div class="cards-grid">
+            <article class="card">
+              <h3 class="card-title">📊 Automated Data Analysis</h3>
+              <p class="card-text">Upload Excel/CSV and get instant KPIs, charts, and clean summaries.</p>
+            </article>
+            <article class="card">
+              <h3 class="card-title">🧠 AI Decision Audit</h3>
+              <p class="card-text">Analyze reasoning quality and uncover weak assumptions or unsupported claims.</p>
+            </article>
+            <article class="card">
+              <h3 class="card-title">⚖️ Bias Detection</h3>
+              <p class="card-text">Detect cognitive and data-quality biases with clear risk labeling.</p>
+            </article>
+            <article class="card">
+              <h3 class="card-title">📈 Smart Recommendations</h3>
+              <p class="card-text">Get pragmatic suggestions to improve decisions and tighten analysis rigor.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- HOW IT WORKS -->
+      <section class="section section-muted" id="how">
+        <div class="container">
+          <div class="section-head">
+            <h2 class="section-title">How it works</h2>
+            <p class="section-subtitle">Three steps from upload to actionable decision support.</p>
+          </div>
+
+          <ol class="steps" aria-label="How it works steps">
+            <li class="step">
+              <div class="step-icon" aria-hidden="true">1</div>
+              <div>
+                <h3 class="step-title">Upload your data</h3>
+                <p class="step-text">Import CSV/Excel datasets into the dashboard.</p>
+              </div>
+            </li>
+            <li class="step">
+              <div class="step-icon" aria-hidden="true">2</div>
+              <div>
+                <h3 class="step-title">Analyze insights &amp; charts</h3>
+                <p class="step-text">Review KPIs, trends, and distributions with readable defaults.</p>
+              </div>
+            </li>
+            <li class="step">
+              <div class="step-icon" aria-hidden="true">3</div>
+              <div>
+                <h3 class="step-title">Evaluate your decision</h3>
+                <p class="step-text">Surface bias signals and apply recommendations before acting.</p>
+              </div>
+            </li>
+          </ol>
+        </div>
+      </section>
+
+      <!-- WHY -->
+      <section class="section" id="why">
+        <div class="container why-grid">
+          <div class="why-copy">
+            <div class="section-head section-head-left">
+              <h2 class="section-title">Why this project</h2>
+              <p class="section-subtitle">
+                Built to help non-technical users analyze data and improve decision-making discipline.
+              </p>
+            </div>
+
+            <ul class="why-list">
+              <li><strong>Beginner-friendly:</strong> clear UI and guided outputs.</li>
+              <li><strong>No coding required:</strong> upload and explore immediately.</li>
+              <li><strong>Supports better thinking:</strong> highlights hidden assumptions and bias patterns.</li>
+              <li><strong>Real-world use:</strong> tailored to research and academic decision support.</li>
+            </ul>
+          </div>
+
+          <aside class="why-panel">
+            <h3 class="why-panel-title">Academic note</h3>
+            <p class="why-panel-text">
+              Outputs are decision support—not ground truth. Validate with domain context, appropriate methods, and
+              statistical rigor.
+            </p>
+            <a class="btn btn-secondary btn-block" href="/dashboard">Open Dashboard</a>
+          </aside>
+        </div>
+      </section>
+
+      <!-- CTA -->
+      <section class="cta" aria-label="Final call to action">
+        <div class="container cta-inner">
+          <div>
+            <h2 class="cta-title">Start Analyzing Now</h2>
+            <p class="cta-text">Sign in and move from raw data to bias-aware decision intelligence.</p>
+          </div>
+          <div class="cta-actions">
+            <a class="btn btn-primary" href="/login" data-cta="cta-start">Continue with Google</a>
+            <a class="btn btn-ghost" href="/dashboard">Go to Dashboard</a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="container footer-row">
+        <div class="footer-left">
+          <div class="footer-brand">AI Data &amp; Decision Intelligence System</div>
+          <div class="footer-note">Built for Academic Use</div>
+        </div>
+        <div class="footer-right">
+          <span class="footer-copy">© <span data-year></span></span>
+        </div>
+      </div>
+    </footer>
+
+    <script src="./js/landing.js" defer></script>
+  </body>
+</html>
+

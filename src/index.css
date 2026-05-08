@@ -1,0 +1,182 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --radius: 0.75rem;
+
+    /* Light (default) */
+    --background: 210 40% 98%;
+    --foreground: 222 47% 11%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 222 47% 11%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 222 47% 11%;
+
+    --primary: 221 83% 53%;
+    --primary-foreground: 210 40% 98%;
+
+    --secondary: 210 40% 96%;
+    --secondary-foreground: 222 47% 11%;
+
+    --muted: 210 40% 96%;
+    --muted-foreground: 215 16% 47%;
+
+    --accent: 210 40% 96%;
+    --accent-foreground: 222 47% 11%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 214 32% 91%;
+    --input: 214 32% 91%;
+    --ring: 221 83% 53%;
+
+    /* App semantic colors */
+    --analytics: 221 83% 53%;
+    --analytics-foreground: 210 40% 98%;
+    --bias: 0 72% 51%;
+    --bias-foreground: 210 40% 98%;
+    --combined: 271 81% 56%;
+    --combined-foreground: 210 40% 98%;
+    --success: 142 71% 45%;
+    --success-foreground: 210 40% 98%;
+    --warning: 38 92% 50%;
+    --warning-foreground: 222 47% 11%;
+
+    --surface: 210 40% 98%;
+    --surface-2: 210 40% 96%;
+    --surface-3: 214 32% 91%;
+
+    /* Sidebar tokens (kept for existing components) */
+    --sidebar-background: 210 40% 98%;
+    --sidebar-foreground: 222 47% 11%;
+    --sidebar-border: 214 32% 91%;
+    --sidebar-accent: 210 40% 96%;
+    --sidebar-primary: 221 83% 53%;
+    --sidebar-primary-foreground: 210 40% 98%;
+    --sidebar-accent-foreground: 222 47% 11%;
+    --sidebar-ring: 221 83% 53%;
+  }
+
+  .dark {
+    --background: 222 47% 7%;
+    --foreground: 210 40% 98%;
+
+    --card: 222 47% 10%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 222 47% 10%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 221 83% 60%;
+    --primary-foreground: 210 40% 98%;
+
+    --secondary: 215 28% 17%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 215 28% 17%;
+    --muted-foreground: 215 20% 70%;
+
+    --accent: 215 28% 17%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 215 28% 20%;
+    --input: 215 28% 20%;
+    --ring: 221 83% 60%;
+
+    --analytics: 221 83% 60%;
+    --analytics-foreground: 210 40% 98%;
+    --bias: 0 72% 55%;
+    --bias-foreground: 210 40% 98%;
+    --combined: 271 81% 60%;
+    --combined-foreground: 210 40% 98%;
+    --success: 142 71% 45%;
+    --success-foreground: 210 40% 98%;
+    --warning: 38 92% 50%;
+    --warning-foreground: 222 47% 11%;
+
+    --surface: 222 47% 7%;
+    --surface-2: 222 47% 10%;
+    --surface-3: 215 28% 17%;
+
+    --sidebar-background: 222 47% 7%;
+    --sidebar-foreground: 210 40% 98%;
+    --sidebar-border: 215 28% 20%;
+    --sidebar-accent: 215 28% 17%;
+    --sidebar-primary: 221 83% 60%;
+    --sidebar-primary-foreground: 210 40% 98%;
+    --sidebar-accent-foreground: 210 40% 98%;
+    --sidebar-ring: 221 83% 60%;
+  }
+
+  html {
+    font-family: "Inter", system-ui, sans-serif;
+  }
+
+  body {
+    background-color: hsl(var(--background));
+    color: hsl(var(--foreground));
+    transition: background-color 200ms ease, color 200ms ease;
+  }
+
+  .dark body {
+    background-image: radial-gradient(circle at top, rgba(59, 130, 246, 0.10), transparent 55%);
+    background-attachment: fixed;
+  }
+}
+
+/* Subtle reusable surfaces (kept for existing pages/components) */
+.card-premium {
+  background: hsl(var(--card) / 0.72);
+  border: 1px solid hsl(var(--border));
+  border-radius: calc(var(--radius) + 4px);
+  backdrop-filter: blur(12px);
+}
+
+.glow-analytics {
+  box-shadow: 0 0 0 4px hsl(var(--analytics) / 0.06);
+}
+
+.glow-bias {
+  box-shadow: 0 0 0 4px hsl(var(--bias) / 0.06);
+}
+
+/* Skeleton */
+.skeleton {
+  background: linear-gradient(90deg, hsl(var(--muted)) 25%, hsl(var(--border)) 37%, hsl(var(--muted)) 63%);
+  background-size: 400% 100%;
+  animation: shimmer 1.4s ease infinite;
+  border-radius: 10px;
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: 100% 0;
+  }
+  100% {
+    background-position: -100% 0;
+  }
+}
+
+.perspective {
+  perspective: 1000px;
+}
+
+.transform-style {
+  transform-style: preserve-3d;
+}
+
+.backface-hidden {
+  backface-visibility: hidden;
+}
+
+.rotate-y-180 {
+  transform: rotateY(180deg);
+}
