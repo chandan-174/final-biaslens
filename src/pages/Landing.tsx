@@ -352,11 +352,10 @@ export default function Landing() {
         <div className="grid md:grid-cols-5 gap-8">
 
           {[
-            "Chandan Sharma(Me)",
+            "Chandan Sharma",
             "Diksha Sharma",
             "Ayush Sharma",
             "Akanksha Sharma",
-            "Chiranjeev Sharma",
           ].map((name, i) => (
             <div
               key={i}
