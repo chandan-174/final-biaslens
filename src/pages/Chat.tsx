@@ -48,7 +48,9 @@ const asJsonObject = (value: Json | null | undefined): Record<string, Json> | nu
 
 const getErrorMessage = (e: unknown) => (e instanceof Error ? e.message : String(e));
 
-const BACKEND_URL = (import.meta.env.VITE_BACKEND_URL as string | undefined) || "http://localhost:5000";
+const BACKEND_URL =
+  (import.meta.env.VITE_BACKEND_URL as string | undefined) ||
+  (import.meta.env.PROD ? "" : "http://localhost:5000");
 
 const normalizeAIResponse = (value: unknown): ChatAIResponse => {
   if (!value || typeof value !== "object") return {};

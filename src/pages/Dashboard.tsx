@@ -23,7 +23,9 @@ import jsPDF from "jspdf";
 import * as htmlToImage from "html-to-image";
 import { supabase } from "@/lib/supabase";
 
-const BACKEND_URL = (import.meta.env.VITE_BACKEND_URL as string | undefined) || "http://localhost:5000";
+const BACKEND_URL =
+  (import.meta.env.VITE_BACKEND_URL as string | undefined) ||
+  (import.meta.env.PROD ? "" : "http://localhost:5000");
 
 
 
