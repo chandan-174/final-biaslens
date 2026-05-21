@@ -57,7 +57,8 @@ const BiasBreakdown = () => {
         const [chatRes, scanRes] = await Promise.all([
           supabase
             .from("chat_messages")
-            .select("bias_data, user_id")
+            .select("bias_data, chat_sessions!inner(user_id)")
+            .eq("chat_sessions.user_id", user.id)
             .not("bias_data", "is", null),
 
           supabase

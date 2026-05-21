@@ -48,6 +48,8 @@ const asJsonObject = (value: Json | null | undefined): Record<string, Json> | nu
 
 const getErrorMessage = (e: unknown) => (e instanceof Error ? e.message : String(e));
 
+const BACKEND_URL = (import.meta.env.VITE_BACKEND_URL as string | undefined) || "http://localhost:5000";
+
 const normalizeAIResponse = (value: unknown): ChatAIResponse => {
   if (!value || typeof value !== "object") return {};
   const v = value as Record<string, unknown>;
@@ -171,15 +173,20 @@ const Chat = () => {
     history.push({ role: "user", content: currentInput });
 
     try {
-      const { data, error } = await supabase.functions.invoke("chat", {
-        body: { messages: history },
+      const resp = await fetch(`${BACKEND_URL}/api/chat`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ messages: history }),
       });
-
-      if (error) throw error;
+      if (!resp.ok) {
+        const t = await resp.text();
+        throw new Error(t || `AI request failed (${resp.status})`);
+      }
+      const data = (await resp.json()) as { content?: string };
 
       let parsed: ChatAIResponse;
       try {
-        const raw = data.content.replace(/```json\n?/g, "").replace(/```\n?/g, "").trim();
+        const raw = (data.content || "").replace(/```json\n?/g, "").replace(/```\n?/g, "").trim();
         parsed = normalizeAIResponse(JSON.parse(raw));
       } catch {
         parsed = { analytics: data.content, biasDetected: false };

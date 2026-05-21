@@ -23,6 +23,8 @@ import jsPDF from "jspdf";
 import * as htmlToImage from "html-to-image";
 import { supabase } from "@/lib/supabase";
 
+const BACKEND_URL = (import.meta.env.VITE_BACKEND_URL as string | undefined) || "http://localhost:5000";
+
 
 
 const Dashboard = () => {
@@ -42,22 +44,19 @@ const askAI = async () => {
   try {
     console.log("STEP 1: sending request");
 
-    const { data, error } = await supabase.functions.invoke("chat", {
-      body: {
+    const resp = await fetch(`${BACKEND_URL}/api/chat`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
         messages: [{ role: "user", content: query }],
-      },
+      }),
     });
 
+    const data = (await resp.json().catch(() => ({}))) as { content?: string; error?: string };
     console.log("STEP 2: response data:", data);
-    console.log("STEP 3: response error:", error);
 
-    if (error) {
-      toast.error("Function error");
-      return;
-    }
-
-    if (!data) {
-      setAnswer("No data received");
+    if (!resp.ok) {
+      toast.error(data.error || `AI request failed (${resp.status})`);
       return;
     }
 
@@ -260,14 +259,17 @@ Bias Alerts: ${biasAlerts.map((b) => b.title).join(", ")}
 Give 3 short insights about trends, risks, and decisions.
 `;
 
-      const { data, error } = await supabase.functions.invoke("chat", {
-        body: {
+      const resp = await fetch(`${BACKEND_URL}/api/chat`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
           messages: [{ role: "user", content: prompt }],
-        },
+        }),
       });
 
-      if (error) {
-        console.error(error);
+      const data = (await resp.json().catch(() => ({}))) as { content?: string; error?: string };
+      if (!resp.ok) {
+        console.error(data.error || `AI request failed (${resp.status})`);
         return;
       }
 
@@ -443,7 +445,7 @@ Frank,Male,72000,Engineering`;
           </p>
         </div>
 
-        <div className="bg-card border border-border rounded-xl p-5">
+        {/* <div className="bg-card border border-border rounded-xl p-5">
           <h3 className="font-bold text-sm mb-3">💬 Chat with your Data</h3>
 
           <div className="flex gap-2">
@@ -464,7 +466,7 @@ Frank,Male,72000,Engineering`;
               {answer}
             </div>
           )}
-        </div>
+        </div> */}
 
         <div className="flex gap-2 flex-wrap">
 

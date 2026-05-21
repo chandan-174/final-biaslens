@@ -10,6 +10,8 @@ import { useToast } from "@/hooks/use-toast";
 import { useAuth } from "@/contexts/AuthContext";
 import { useSearchParams } from "react-router-dom";
 
+const BACKEND_URL = (import.meta.env.VITE_BACKEND_URL as string | undefined) || "http://localhost:5000";
+
 interface SentenceBias {
   text: string;
   severity: "none" | "low" | "medium" | "high";
@@ -110,14 +112,20 @@ const Scanner = () => {
     setSentences([]);
     setSelected(null);
     try {
-      const { data, error } = await supabase.functions.invoke("scan-document", {
-        body: { text },
+      const resp = await fetch(`${BACKEND_URL}/api/scan-document`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ text }),
       });
-      if (error) throw error;
+      if (!resp.ok) {
+        const t = await resp.text();
+        throw new Error(t || `Scan request failed (${resp.status})`);
+      }
+      const data = (await resp.json()) as { content?: string };
 
       let parsed: SentenceBias[];
       try {
-        const raw = data.content.replace(/```json\n?/g, "").replace(/```\n?/g, "").trim();
+        const raw = (data.content || "").replace(/```json\n?/g, "").replace(/```\n?/g, "").trim();
         parsed = JSON.parse(raw);
       } catch {
         throw new Error("Failed to parse AI response");
